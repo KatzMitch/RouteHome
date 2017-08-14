@@ -7,3 +7,8 @@ apikey.yml and add your personal API key in the appropriate spot.
 
 Thank you to MassDOT and the City of Boston traffic engineers for necessitating
 this utility! Have fun avoiding traffic!
+
+Future updates:
+- Add a configuration script to write APIKEY.yml and copy executable to the
+user's PATH, and choose default origin and destination
+- Add support for tolls (choose whether or not to avoid them)
