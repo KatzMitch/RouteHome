@@ -12,3 +12,4 @@ Future updates:
 - Add a configuration script to write APIKEY.yml and copy executable to the
 user's PATH, and choose default origin and destination
 - Add support for tolls (choose whether or not to avoid them)
+- Add command line support for different orgin and destination
