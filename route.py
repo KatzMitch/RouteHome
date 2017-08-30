@@ -4,28 +4,22 @@ import requests
 import yaml
 
 URL = "https://maps.googleapis.com/maps/api/directions/json"
-API_KEY_FILE = "apikey.yml"
+CONFIG_FILE = "config.yml"
 
-ORIGIN = "311 Arsenal St, Watertown, MA"
-DEST = "137 W Concord St, Boston, MA"
-
-def getAPIKey():
-    with open(API_KEY_FILE, "r") as s:
-        try:
-            y = yaml.safe_load(s)
-            return y["Google_Maps_API_Key"]
-        except yaml.YAMLError as exc:
-            print exc
-
-def makeRequest(org=ORIGIN, dest=DEST):
+def makeRequest():
     parameters = {
-        "origin": org.replace(" ", "+"),
-        "destination": dest.replace(" ", "+"),
-        "key": getAPIKey(),
         "departure_time": "now",
         "alternatives": "true",
         "avoid": "tolls"
     }
+    with open(CONFIG_FILE, "r") as s:
+        try:
+            y = yaml.safe_load(s)
+            parameters["origin"] = y['Origin'].replace(" ", "+"),
+            parameters["destination"] = y['Dest'].replace(" ", "+"),
+            parameters["key"] = y['Google_Maps_API_Key']
+        except yaml.YAMLError as exc:
+            print exc
     req = requests.get(URL, params=parameters)
     return req.json()
 
