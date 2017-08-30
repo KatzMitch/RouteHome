@@ -1,3 +1,5 @@
-# apikey.yml.dist
+# apikey.yml
 
-Google_Maps_API_Key: APIKEYHERE
+Google_Maps_API_Key: API_KEY_HERE
+Origin: 311 Arsenal St, Watertown, MA
+Dest: 137 W Concord St, Boston, MA
