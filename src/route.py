@@ -2,9 +2,10 @@
 
 import requests
 import yaml
+import os
 
 URL = "https://maps.googleapis.com/maps/api/directions/json"
-CONFIG_FILE = "config.yml"
+CONFIG_FILE = os.path.dirname(os.path.abspath(__file__)) + "/config.yml"
 
 def makeRequest():
     parameters = {

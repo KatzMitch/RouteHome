@@ -1,0 +1,28 @@
+#!/bin/sh
+
+DIR=/usr/local/RouteHome
+echo "Installing file in" $DIR
+
+# Copy python file to /usr/local and alias route to be an alias to execute
+mkdir -p $DIR
+cp src/route.py $DIR/route.py
+chmod 755 $DIR/route.py
+echo "alias routehome='python /usr/local/RouteHome/route.py'" >> ~/.profile
+shopt -s expand_aliases
+source ~/.profile
+
+# Create config.yml file
+touch $DIR/config.yml
+echo "# apikey.yml\n" >> $DIR/config.yml
+
+echo "What is your origin point? (be sure to include a full address and city)"
+read ORIGIN
+echo "Origin: " $ORIGIN >> $DIR/config.yml
+
+echo "\nWhat is your destination point?"
+read DEST
+echo "Dest: " $DEST >> $DIR/config.yml
+
+echo "\nWhat is your Google Maps API Key"
+read KEY
+echo "Google_Maps_API_Key: " $KEY >> $DIR/config.yml
