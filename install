@@ -10,6 +10,9 @@ echo "alias routehome='python /usr/local/RouteHome/route.py'" >> ~/.profile
 shopt -s expand_aliases
 source ~/.profile
 
+pip install pyyaml
+pip install requests
+
 # Create config.yml file
 touch $DIR/config.yml
 echo "# apikey.yml\n" >> $DIR/config.yml
